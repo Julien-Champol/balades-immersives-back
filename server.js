@@ -22,6 +22,9 @@ app.use(express.json());
 // routes
 app.use('/users', require(`./routes/user`));
 app.use('/buildings', require(`./routes/building`));
+app.use('/moves', require(`./routes/move`));
+app.use('/photo360s', require(`./routes/photo360`));
+app.use('/interestPoints', require(`./routes/interestPoint`));
 
 // initialisation à la base de données
 mongoose.set('strictQuery', false);
