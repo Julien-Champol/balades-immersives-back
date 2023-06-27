@@ -1,5 +1,4 @@
 const userRepository = require(`../repositories/user`);
-const {updateUser} = require("../repositories/user");
 
 exports.getUsers = (req, res) => {
     userRepository.getUsers()

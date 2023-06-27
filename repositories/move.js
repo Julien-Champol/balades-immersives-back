@@ -1,6 +1,6 @@
 const Move = require(`../models/move`);
 
-exports.getMove = () => Move.find({});
+exports.getMoves = () => Move.find({});
 
 exports.getMoveById = (id) => Move.findById(id);
 

@@ -1,6 +1,6 @@
 const InterestPoint = require(`../models/interestPoint`);
 
-exports.getInterestPoint = () => InterestPoint.find({});
+exports.getInterestPoints = () => InterestPoint.find({});
 
 exports.getInterestPointById = (id) => InterestPoint.findById(id);
 

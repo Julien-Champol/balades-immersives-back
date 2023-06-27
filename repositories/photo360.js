@@ -1,6 +1,6 @@
 const Photo360 = require(`../models/photo360`);
 
-exports.getPhoto360 = () => Photo360.find({});
+exports.getPhoto360s = () => Photo360.find({});
 
 exports.getPhoto360ById = (id) => Photo360.findById(id);
 
