@@ -7,23 +7,11 @@ on:
     branches: [ mise-en-place-actions ]
 
 jobs:
-  build:
-
+  run_pull:
+    name: run pull
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-
     - name: Installation des clés ssh
       run: |
         install -m 600 -D /dev/null ~/.ssh/id_rsa
