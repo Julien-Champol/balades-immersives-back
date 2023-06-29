@@ -19,7 +19,7 @@ jobs:
         ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
 
     - name: Pull de déploiement
-      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git switch ${{ secrets.MAIN_BRANCH }} && git pull &&  export PATH={{ secrets.NPM_PATH }} && npm install && exit"
+      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git switch ${{ secrets.MAIN_BRANCH }} && git pull && export PATH=${{ secrets.NPM_PATH }} && npm install && exit"
 
     - name: cleanup
       run: rm -rf ~/.ssh
