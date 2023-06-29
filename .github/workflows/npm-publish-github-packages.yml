@@ -2,9 +2,9 @@ name: CI/CD
 
 on:
   push:
-    branches: [ mise-en-place-actions ]
+    branches: [ main ]
   pull_request:
-    branches: [ mise-en-place-actions ]
+    branches: [ main ]
 
 jobs:
   run_pull:
