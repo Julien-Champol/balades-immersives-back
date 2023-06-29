@@ -22,6 +22,9 @@ const buildingSchema = mongoose.Schema(
             type: String,
             required:[true, `Une photo est nécessaire pour illustrer le bâtiment`]
         },
+        url: {
+            type: String,
+        },
     },
     {
         timestamps: true
