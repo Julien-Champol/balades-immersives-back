@@ -8,7 +8,7 @@ dotenv.config();
 
 /* Entêtes CORS */
 const cors = res => {
-    res.header('Access-Control-allow-Origin', '');
+    res.header('Access-Control-allow-Origin', '*');
     res.header('Access-Control-allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
 };
