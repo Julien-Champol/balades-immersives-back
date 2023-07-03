@@ -25,10 +25,9 @@ exports.getPhoto360sWithMoves = (req, res) => {
 
 exports.getPhoto360sByBuildingIdWithMoves = async (req, res) => {
     try {
-        const { id } = req.params;
+        const {id} = req.params;
 
         const photo360s = await photo360Repository.getPhoto360ByBuildingId(id);
-        // console.log(photo360s)
         const photoIds = photo360s.map(photo => photo._id);
         const moves = await moveRepository.getMovesByPhotosId(photoIds);
 
@@ -38,16 +37,14 @@ exports.getPhoto360sByBuildingIdWithMoves = async (req, res) => {
             return photoData;
         });
 
-        // console.log(photos360WithMoves)
-        //
-        // const interestsPoints = await interestPointRepository.getInterestsPointsByPhotosId(photoIds);
-        // console.log(interestsPoints)
-        // const photos360WithMovesAndInterestsPoints = photos360WithMoves.map(photo => {
-        //     const photoData = photo.toObject();
-        //     photoData.interestsPoints = interestsPoints.filter(interestPoint => interestPoint.photo360_id.toString() === photoData._id.toString());
-        //     return photoData;
-        // });
-        // console.log(photos360WithMovesAndInterestsPoints)
+        const interestsPoints = await interestPointRepository.getInterestsPointsByPhotosId(photoIds);
+
+        photos360WithMoves.map(photo2 => {
+            const photoData = photo2;
+            console.log(photoData)
+            photoData.interestsPoints = interestsPoints.filter(interestPoint => interestPoint.photo360_id.toString() === photoData._id.toString());
+            return photoData;
+        });
         res.status(200).json(photos360WithMoves);
     } catch (error) {
         res.status(500).send(error);
