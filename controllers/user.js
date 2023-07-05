@@ -12,6 +12,12 @@ exports.getUser = (req, res) => {
         .then(user => res.status(200).json(user))
         .catch(error => res.status(500).send(error));
 };
+exports.getUserConnexion = (req, res) => {
+    const email = req.body.email;
+    userRepository.getUserConnexion(email)
+        .then(user => res.status(201).json(user))
+        .catch(error => res.status(500).send(error));
+};
 
 exports.createUser = (req, res) => {
     const userData = req.body;

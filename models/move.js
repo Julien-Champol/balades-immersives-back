@@ -11,6 +11,10 @@ const moveSchema = new mongoose.Schema(
             type: Schema.Types.ObjectId, ref: 'Photo360',
             required: [true, "Merci d'indiquer la prochaine photo du déplacement"]
         },
+        description: {
+            type: String,
+            required: [true, `Merci d'insérer la description associée`]
+        },
         coordinates: {
             type: [
                 {

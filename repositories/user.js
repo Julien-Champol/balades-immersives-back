@@ -12,6 +12,10 @@ exports.createUser = async (userData) => {
     await User.create(userData);
 };
 
+exports.getUserConnexion = (email) => User.find({ email: { $in: email } });
+
+
+
 exports.updateUser = (id, userData) => User.findByIdAndUpdate(id, userData, { new: true});
 
 exports.deleteUser = (id) => User.findByIdAndDelete(id);
