@@ -14,9 +14,7 @@ exports.getUser = (req, res) => {
 };
 exports.getUserConnexion = (req, res) => {
     const email = req.body.email;
-    const password = req.body.password;
-    console.log(req.body);
-    userRepository.getUserConnexion(email,password)
+    userRepository.getUserConnexion(email)
         .then(user => res.status(201).json(user))
         .catch(error => res.status(500).send(error));
 };
