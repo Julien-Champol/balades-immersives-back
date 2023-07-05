@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema(
         },
         email: {
             type: String,
+            unique: true,
             required: [true, `Merci d'insérer un email valide`]
         },
         password: {
@@ -19,6 +20,11 @@ const userSchema = new mongoose.Schema(
         timestamps: true
     }
 );
+
+userSchema.statics.checkEmailUniqueness = async function (email) {
+    const user = await this.findOne({email});
+    return !!user;
+};
 
 const User = mongoose.model(`User`, userSchema);
 
