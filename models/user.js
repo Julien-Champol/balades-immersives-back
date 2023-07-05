@@ -21,11 +21,6 @@ const userSchema = new mongoose.Schema(
     }
 );
 
-userSchema.statics.checkEmailUniqueness = async function (email) {
-    const user = await this.findOne({email});
-    return !!user;
-};
-
 const User = mongoose.model(`User`, userSchema);
 
 module.exports = User;
