@@ -24,6 +24,10 @@ const interestPoint = new mongoose.Schema(
             type: String,
             required: [true, `Merci d'insérer la description associée`]
         },
+        typePointInteret: {
+            type: String,
+            required: [true, `Merci d'insérer le type de point d'intérêt`]
+        },
     }
 );
 
