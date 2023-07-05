@@ -4,7 +4,13 @@ exports.getUsers = () => User.find({});
 
 exports.getUserById = (id) => User.findById(id);
 
-exports.createUser = (userData) => User.create(userData);
+exports.createUser = async (userData) => {
+    const isEmailTaken = await User.exists(userData.email);
+    if (isEmailTaken) {
+        throw new Error('L\'adresse e-mail est déjà utilisée.');
+    }
+    await User.create(userData);
+};
 
 exports.updateUser = (id, userData) => User.findByIdAndUpdate(id, userData, { new: true});
 
