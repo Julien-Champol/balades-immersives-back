@@ -4,7 +4,7 @@ exports.getUsers = () => User.find({});
 
 exports.getUserById = (id) => User.findById(id);
 
-exports.getUserConnexion = (email,password) => User.find({ email: { $in: email }, password: { $in: password } });
+exports.getUserConnexion = (email) => User.find({ email: { $in: email } });
 
 
 exports.createUser = (userData) => User.create(userData);
