@@ -1,6 +1,6 @@
 const Building = require(`../models/building`);
 
-exports.getBuildings = () => Building.find({});
+exports.getBuildings = () => Building.find({}).sort({ name: 1 });;
 
 exports.getBuildingById = (id) => Building.findById(id);
 
